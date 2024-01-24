@@ -18,6 +18,7 @@ class Solution
     Node *copyList(Node *head)
     {
         //Write your code here
+        //STEP 1: create clone list...
         Node *cloneHead=NULL;
         Node *cloneTail=NULL;
         
@@ -29,7 +30,8 @@ class Solution
         }
         Node *originalNode=head;
         Node *cloneNode=cloneHead;
-        
+
+        //STEP 2: clone Nodes add in b/w original Nodes...
         while(originalNode!=NULL && cloneNode!=NULL)
         {
             Node *next=originalNode->next;
@@ -40,7 +42,8 @@ class Solution
             cloneNode->next=originalNode;
             cloneNode=next;
         }
-        
+
+        //STEP 3: random pointer copy...
         temp=head;
         
         while(temp!=NULL)
@@ -52,7 +55,8 @@ class Solution
           
           temp=temp->next->next;
         }
-        
+
+        //STEP 4 : revert the changes made in step 2...
         originalNode=head;
         cloneNode=cloneHead;
         

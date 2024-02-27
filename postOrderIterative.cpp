@@ -32,3 +32,14 @@
 
         return ans;
     }
+
+/*
+Algorithm:
+
+   1. Push root to first stack.
+2. Loop while first stack is not empty
+   2.1 Pop a node from first stack and push it to second stack
+   2.2 Push left and right children of the popped node to first stack
+3. Print contents of second stack
+
+*/

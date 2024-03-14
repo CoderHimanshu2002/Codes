@@ -1,3 +1,4 @@
+//APPROACH 1-: 
 // Get Inorder Traversal of the BST and store it in a vector...
 void inorderTraversal(BinaryTreeNode<int> *root,vector<int> &v){
         if(root==NULL){
@@ -19,4 +20,30 @@ int kthSmallest(BinaryTreeNode<int>* root, int k) {
         return -1;
     }
     return v[k-1]; // return the kth smallest element of the BST from the array...
+}
+
+// APPRAOCH 2-:
+
+int solve(BinaryTreeNode<int>* root,int k,int &i){
+
+    if(root==NULL){
+           return -1;
+        }
+        
+    int left=solve(root->left, k,i);
+    if(left!=-1){
+        return left;
+    }
+    i++;    
+    if(k==i){
+        return root->data;
+    }
+    
+    return solve(root->right,k,i);
+}
+int kthSmallest(BinaryTreeNode<int>* root, int k) {
+    // Write your code here.
+    int i=0;
+    int ans=solve(root,k,i);
+    return ans;
 }
